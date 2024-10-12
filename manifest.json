@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "name": "Kahoot Solver",
+    "version": "1.0",
+    "description": "Solves Kahoot questions using the OpenAI API",
+    "permissions": ["activeTab", "scripting", "storage"],
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://kahoot.it/*"],
+        "js": ["contentScript.js"]
+      }
+    ],
+    "host_permissions": [
+      "https://api.openai.com/*"
+    ],
+    "options_page": "popup.html"
+}
